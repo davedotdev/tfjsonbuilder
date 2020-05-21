@@ -2,6 +2,10 @@
 
 This project loads the Terraform JSON Schema and creates a TF JSON configuration blob from the schema. This is a tool for a programmatic tool-chain.
 
+**WARNING & DISCLAIMER**
+
+I never intended to share this work for one primary reason; the code stinks. It does the equivalent of 'bit banging'. The data structure created is done so artificially through print statements. I'll address this in 0.0.2 and use proper a tree of data instances and then unmarshal it. For now, it works, albeit, it feels a bit dirty. My excuse (which I'm sticking to) is speed.
+
 #### Usage
 
 ```bash
@@ -17,6 +21,8 @@ You should be able to create a file named `thing.tf.json` and use the output of 
 
 __Print Everything__
 `./tfjsonbuilder -file schemaexample1.json`
+
+This mode of operation allows you to see the tree being walked in marvellous print statements and indentation offsets.
 
 ```bash
 # Output
@@ -69,6 +75,8 @@ Valid JSON: {"resource":{"canonical":{"config-group-name":{"float1": 0, "int1": 
 
 __JSON Only__
 `./tfjsonbuilder -file schemaexample1.json -getJSON`
+
+If you're the kind of person that just wants the useful bit, then this is for you. The "give me the JSON" mode.
 
 ```bash
 # Output
